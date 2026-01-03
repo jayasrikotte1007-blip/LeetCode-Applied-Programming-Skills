@@ -1,0 +1,36 @@
+**Contains-Duplicate-11**
+
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1], k = 3
+Output: true
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+ 
+
+Constraints:
+
+1 <= nums.length <= 105
+-109 <= nums[i] <= 109
+0 <= k <= 105
+
+**Approach**
+
+I thought about this problem like this: I need to find two equal numbers in the array that are close to each other, at most `k` positions apart. To do that, I can go through the array one by one and remember the last position where each number appeared. I can use a `HashMap` for that, where the key is the number and the value is its latest index. Every time I see a number, I check if it is already in the map. If it is, I calculate the difference between the current index and the last index. If the difference is less than or equal to `k`, I know the condition is satisfied, so I return `true`. If not, I update the index in the map and keep checking the rest of the array. If I reach the end without finding any such pair, I return `false`.
+
+This way, I only need to go through the array **once**, and I can quickly check for duplicates using the map.
+
+**Time Complexity**
+o(n)
+**Space Complexity**
+o(n)
