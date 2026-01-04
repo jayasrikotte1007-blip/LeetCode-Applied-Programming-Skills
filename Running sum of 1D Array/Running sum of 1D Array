@@ -1,0 +1,16 @@
+class Solution{
+    public int[]runningSum(int[] nums){
+        for(int itr = 1;itr < nums.length;itr++){
+            nums[itr] = nums[itr] + nums[itr-1];
+        }
+            return nums;
+    }
+    public static void main(String [] args){
+        int[] arr= new int[] {1,2,3,4};
+        Solution s = new Solution();
+        int[] result = s.runningSum(arr);
+        for (int num: result){
+            System.out.print(num+ " ");
+        }
+    }
+}
